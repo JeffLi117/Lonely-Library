@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lonely Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Welcome to the Lonely Library</h1>
+    <h2 id="books_present">Check out all your awesome books!</h2>
+    <h2 id="books_absent">Looks like your library is empty! Use the button below?</h2>
+    <span></span>
+
+    <button id="new_form_button">New Book</button>
+
+    <div class="form-box">
+        <form action="#" method="get" id="test">
+            <div>
+                <label for="title">Book Title</label><br>
+                <input type="text" id="title" name="book_title" placeholder="Harry Potter" required >
+            </div>
+            <div>
+                <label for="author">Book Author</label><br>
+                <input type="text" id="author" name="book_author" placeholder="J.K. Rowling" required >
+            </div>
+            <div>
+                <label for="pages">Number of Pages</label>
+                <input type="text" id="pages" name="number_pages" placeholder="499" required >
+            </div>
+            <div>
+                <label for="status">Read/Not Read Yet</label>
+                <input type="text" id="status" name="read_status" placeholder="Read" required >
+            </div>
+            <button type="submit" id="submit_button">Add New Book</button>
+            <button type="button" id="cancel_button">Cancel</button>
+        </form>
+    </div>
+   
+    
+
+
+
+
+    <script src="myscripts.js"></script>
+</body>
+</html>
