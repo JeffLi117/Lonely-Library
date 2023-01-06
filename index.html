@@ -11,7 +11,7 @@
     <h1>Welcome to the Lonely Library</h1>
     <h2 id="books_present">Check out all your awesome books!</h2>
     <h2 id="books_absent">Looks like your library is empty! Use the button below?</h2>
-    <span></span>
+    <div id="card_container"></div>
 
     <button id="new_form_button">New Book</button>
 
@@ -30,8 +30,8 @@
                 <input type="text" id="pages" name="number_pages" placeholder="499" required >
             </div>
             <div>
-                <label for="status">Read/Not Read Yet</label>
-                <input type="text" id="status" name="read_status" placeholder="Read" required >
+                <label for="readstatus">Read/Not Read Yet</label>
+                <input type="text" id="readstatus" name="read_status" placeholder="Read" required >
             </div>
             <button type="submit" id="submit_button">Add New Book</button>
             <button type="button" id="cancel_button">Cancel</button>
