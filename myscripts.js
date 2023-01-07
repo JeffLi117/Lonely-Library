@@ -23,12 +23,12 @@ const cardGallery = document.getElementById("card_container")
 // work on creating "cards" that will populate within div #card_container
 // currently having issues with newCard not being defined outside of forEach
 
-function createCard() {
+function createCard(Book) {
 
-  let title = this.title
-  let author = this.author
-  let pages = this.pages + " pages"
-  let readstatus = this.readstatus
+  let title = Book.title
+  let author = Book.author
+  let pages = Book.pages + " pages"
+  let readstatus = Book.readstatus
 
   let newCardDiv = document.createElement("div");
   newCardDiv.className += "card";
@@ -76,10 +76,10 @@ function clearArrayOfCards() {
 }
 
 function loopArrayForCards() {
-  /* clearArrayOfCards(); */
+  clearArrayOfCards();
 
   myLibrary.forEach((Book) => {
-    createCard();
+    createCard(Book);
     console.table(Book)
   })
 }
