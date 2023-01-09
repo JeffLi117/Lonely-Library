@@ -45,29 +45,6 @@ function createCard(Book) {
   document.getElementById("card_container").appendChild(newCardDiv);
 }
 
-/* function createCard() {
-
-  let title = test.book_title.value;
-  let author = test.book_author.value;
-  let pages = test.number_pages.value + " pages";
-  let readstatus = test.read_status.value;
-
-  let newCardDiv = document.createElement("div");
-  newCardDiv.className += "card";
-
-  let newCardBtn = document.createElement("button");
-  newCardBtn.className = "remove_own_card";
-  newCardBtn.innerHTML = "Remove This Book";
-
-  let newCardP = document.createElement("p");
-  newCardP.innerHTML = `${title} by ${author}, ${pages}; ${readstatus}`;
-
-  newCardP.appendChild(newCardBtn)
-  newCardDiv.appendChild(newCardP);
-  document.getElementById("card_container").appendChild(newCardDiv);
-}
- */
-
 function clearArrayOfCards() {
   let container = document.getElementById("card_container");
   while (container.firstChild) {
@@ -87,8 +64,18 @@ function loopArrayForCards() {
 /* const removeBtn = document.getElementsByClassName("remove_own_card")
 
 removeBtn.addEventListener('click', (e) => {
-
+  
+  loopArrayForCards();
+  checkBooksPresent();
+  console.table(myLibrary);
 }) */
+
+const btns = document.querySelector('#card_container');
+btns.addEventListener('click', e => {
+  console.log([...btns.children].
+    indexOf(e.target));
+});
+
 
 // changes text based on if there are or aren't books in myLibrary
 function checkBooksPresent() {
