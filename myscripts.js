@@ -1,10 +1,13 @@
 let myLibrary = [];
+var idcounter = 0;
 
 function Book(title, author, pages, readstatus) {
+
     this.title = title
     this.author = author
     this.pages = pages + " pages"
     this.readstatus = readstatus
+    this.id = idcounter++;
 }
 
 function createNewBook() {
@@ -14,7 +17,6 @@ function createNewBook() {
   newBook.pages = test.number_pages.value + " pages";
   newBook.readstatus = test.read_status.value;
   return newBook;
-  console.log("You added a new book!")
 }
 
 const cardGallery = document.getElementById("card_container")
@@ -29,12 +31,13 @@ function createCard(Book) {
   let author = Book.author
   let pages = Book.pages + " pages"
   let readstatus = Book.readstatus
+  let id = Book.id
 
   let newCardDiv = document.createElement("div");
-  newCardDiv.className += "card";
+  newCardDiv.className += `card_${id}`;
 
   let newCardBtn = document.createElement("button");
-  newCardBtn.className = "remove_own_card";
+  newCardBtn.className = `remove_own_card_${id}`;
   newCardBtn.innerHTML = "Remove This Book";
 
   let newCardP = document.createElement("p");
@@ -70,6 +73,8 @@ removeBtn.addEventListener('click', (e) => {
   console.table(myLibrary);
 }) */
 
+// try adding unique ID to each card & button so that 
+// it will be unique within the card AND library
 const btns = document.querySelector('#card_container');
 btns.addEventListener('click', e => {
   console.log([...btns.children].
