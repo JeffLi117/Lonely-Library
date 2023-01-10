@@ -36,10 +36,15 @@ function createCard(Book) {
   newCardBtn.className = `removeowncard_${id}`;
   newCardBtn.innerHTML = "Remove This Book";
 
+  let readBtn = document.createElement("button");
+  readBtn.className = `readstatus_${id}`;
+  readBtn.innerHTML = "Click here to change my read status!";
+
   let newCardP = document.createElement("p");
   newCardP.innerHTML = `${title} by ${author}, ${pages}; ${readstatus}`;
 
-  newCardP.appendChild(newCardBtn)
+  newCardP.appendChild(readBtn);
+  newCardP.appendChild(newCardBtn);
   newCardDiv.appendChild(newCardP);
   document.getElementById("card_container").appendChild(newCardDiv);
 }
@@ -60,38 +65,51 @@ function loopArrayForCards() {
   })
 }
 
-/* const removeBtn = document.getElementsByClassName("removeowncard")
-
-removeBtn.addEventListener('click', (e) => {
-  
-  loopArrayForCards();
-  checkBooksPresent();
-  console.table(myLibrary);
-}) */
 let toBeRemovedNumber = 0;
 function removeFromLib() {
   myLibrary = myLibrary.filter(item => item.id !== toBeRemovedNumber);
 }
 
-// try adding unique ID to each card & button so that 
-// it will be unique within the card AND library
 const btns = document.querySelector('#card_container');
 btns.addEventListener('click', e => {
-  // creates ability to select all removeBtns
-  const removeBtn = document.querySelector('[class^="removeowncard"]');
-  // logs target removeBtn unique class #
-  console.log(e.target.className.substr(14));
-  // target Book with same unique class #
-  toBeRemovedNumber = Number(e.target.className.substr(14));
-  console.log(toBeRemovedNumber);
-  // remove said Book
-  removeFromLib()
-  // check
-  loopArrayForCards();
-  checkBooksPresent();
-  console.table(myLibrary);
-});
 
+  let i = 0;
+  function flipReadStatus(i) {
+    if (myLibrary[i].readstatus == 'Read') {
+      myLibrary[i].readstatus = 'Not Read Yet';
+    } else if (myLibrary[i].readstatus == 'Not Read Yet') {
+      myLibrary[i].readstatus = 'Read';
+    }    
+  }
+  if (e.target.className.slice(0,10) === 'readstatus') {
+    console.log("selected read status");
+    readStatusChangeNumber = Number(e.target.className.substr(11)); 
+    i = readStatusChangeNumber;
+    flipReadStatus(i);
+    loopArrayForCards();
+  } else if (e.target.className.slice(0,13) === 'removeowncard') {
+    console.log("this is to remove stuffs");
+    // target Book with same unique class #
+    toBeRemovedNumber = Number(e.target.className.substr(14));
+    removeFromLib();
+    loopArrayForCards();
+    checkBooksPresent();
+    console.table(myLibrary);
+  }
+
+  /* if (/\bremoveowncard\b/.test(e.target.className)) {
+    alert(e.target.className);
+  } */
+  // const removeBtn = document.querySelector('[class^="removeowncard"]');
+  // target Book with same unique class #
+  // toBeRemovedNumber = Number(e.target.className.substr(14));
+  // remove said Book
+
+  // removeFromLib();
+  // loopArrayForCards();
+  // checkBooksPresent();
+  // console.table(myLibrary);
+});
 
 // changes text based on if there are or aren't books in myLibrary
 function checkBooksPresent() {
@@ -137,8 +155,14 @@ hideFormBtn.addEventListener('click', () => {
   newBookForm.style.display = 'none';
 })
 
+const clearLibBtn = document.getElementById("clear_all_button")
 
-
-function loopBooksToDisplay() {
-
-}
+clearLibBtn.addEventListener('click', () => {
+  let text = "Are you sure you want to completely clear out your library?"
+  if (confirm(text) == true) {
+    myLibrary = [];
+    console.table(myLibrary);
+    loopArrayForCards();
+    checkBooksPresent();
+  }
+})

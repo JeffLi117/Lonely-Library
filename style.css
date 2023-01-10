@@ -16,6 +16,7 @@ body {
 #card_container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
   gap: 1rem;
   padding: 1rem;
 }
@@ -29,11 +30,22 @@ div[class^="card"] {
   flex-direction: column;
   justify-content: center;
   height: auto;
+  font-size: 1.25rem;
   padding: 2rem 0.7rem;
 }
 
 button[class^="removeowncard"] {
   border: 1px solid rgb(218, 0, 0);
+  background-color:rgb(255, 118, 118);
   border-radius: 12px;
+  padding: 1rem;
+  margin: 0.5rem;
+}
+
+button[class^="readstatus"] {
+  border: 2px solid rgb(181, 130, 0);
+  background-color:rgb(255, 233, 69);
+  border-radius: 12px;
+  padding: 1rem;
   margin: 0.5rem;
 }

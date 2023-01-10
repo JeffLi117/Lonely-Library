@@ -30,11 +30,15 @@
                 <input type="text" id="pages" name="number_pages" placeholder="499" required >
             </div>
             <div>
-                <label for="readstatus">Read/Not Read Yet</label>
-                <input type="text" id="readstatus" name="read_status" placeholder="Read" required >
+                <label for="readstatus">Completed?</label>
+                <select id="readstatus" name="read_status" required>
+                    <option value="Read">Read</option>
+                    <option value="Not Read Yet">Not Read Yet</option>
+                </select>
             </div>
             <button type="submit" id="submit_button">Add New Book</button>
             <button type="button" id="cancel_button">Cancel</button>
+            <button type="button" id="clear_all_button">Clear Library</button>
         </form>
     </div>
    
