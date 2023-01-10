@@ -32,7 +32,7 @@ div[class^="card"] {
   padding: 2rem 0.7rem;
 }
 
-button[class^="remove_own_card"] {
+button[class^="removeowncard"] {
   border: 1px solid rgb(218, 0, 0);
   border-radius: 12px;
   margin: 0.5rem;

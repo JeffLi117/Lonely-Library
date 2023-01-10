@@ -21,10 +21,6 @@ function createNewBook() {
 
 const cardGallery = document.getElementById("card_container")
 
-
-// work on creating "cards" that will populate within div #card_container
-// currently having issues with newCard not being defined outside of forEach
-
 function createCard(Book) {
 
   let title = Book.title
@@ -37,7 +33,7 @@ function createCard(Book) {
   newCardDiv.className += `card_${id}`;
 
   let newCardBtn = document.createElement("button");
-  newCardBtn.className = `remove_own_card_${id}`;
+  newCardBtn.className = `removeowncard_${id}`;
   newCardBtn.innerHTML = "Remove This Book";
 
   let newCardP = document.createElement("p");
@@ -64,7 +60,7 @@ function loopArrayForCards() {
   })
 }
 
-/* const removeBtn = document.getElementsByClassName("remove_own_card")
+/* const removeBtn = document.getElementsByClassName("removeowncard")
 
 removeBtn.addEventListener('click', (e) => {
   
@@ -72,13 +68,28 @@ removeBtn.addEventListener('click', (e) => {
   checkBooksPresent();
   console.table(myLibrary);
 }) */
+let toBeRemovedNumber = 0;
+function removeFromLib() {
+  myLibrary = myLibrary.filter(item => item.id !== toBeRemovedNumber);
+}
 
 // try adding unique ID to each card & button so that 
 // it will be unique within the card AND library
 const btns = document.querySelector('#card_container');
 btns.addEventListener('click', e => {
-  console.log([...btns.children].
-    indexOf(e.target));
+  // creates ability to select all removeBtns
+  const removeBtn = document.querySelector('[class^="removeowncard"]');
+  // logs target removeBtn unique class #
+  console.log(e.target.className.substr(14));
+  // target Book with same unique class #
+  toBeRemovedNumber = Number(e.target.className.substr(14));
+  console.log(toBeRemovedNumber);
+  // remove said Book
+  removeFromLib()
+  // check
+  loopArrayForCards();
+  checkBooksPresent();
+  console.table(myLibrary);
 });
 
 
