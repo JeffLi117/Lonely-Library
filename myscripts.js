@@ -25,7 +25,7 @@ function createCard(Book) {
 
   let title = Book.title
   let author = Book.author
-  let pages = Book.pages + " pages"
+  let pages = Book.pages
   let readstatus = Book.readstatus
   let id = Book.id
 
@@ -41,7 +41,7 @@ function createCard(Book) {
   readBtn.innerHTML = "Click here to change my read status!";
 
   let newCardP = document.createElement("p");
-  newCardP.innerHTML = `${title} by ${author}, ${pages}; ${readstatus}`;
+  newCardP.innerHTML = `${title} by ${author}<br>${pages}<br>${readstatus}<br>`;
 
   newCardP.appendChild(readBtn);
   newCardP.appendChild(newCardBtn);
@@ -116,10 +116,10 @@ function checkBooksPresent() {
   const booksHere = document.getElementById("books_present")
   const booksGone = document.getElementById("books_absent")
 
-  if (myLibrary !== '') {
+  if (myLibrary.length > 0) {
     booksHere.style.display = 'block';
     booksGone.style.display = 'none';
-  } else {
+  } else if (myLibrary.length == 0) {
     booksHere.style.display = 'none';
     booksGone.style.display = 'block';
   }

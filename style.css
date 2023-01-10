@@ -5,6 +5,16 @@ body {
   padding: 0;
 }
 
+body {
+  color: white;
+  background-color:rgb(80, 80, 80);
+  background-image: url('https://github.com/JeffLi117/Lonely-Library/blob/main/henry-be-TCsCykbwSJw-unsplash.jpg?raw=true');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: contain;
+}
+
 #test {
     display: none;
 }
@@ -15,8 +25,8 @@ body {
 
 #card_container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(0, min(100%/3, max(75px, 100%/5))));
+  justify-content: center;
   gap: 1rem;
   padding: 1rem;
 }
@@ -29,9 +39,11 @@ div[class^="card"] {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 100%;
   height: auto;
   font-size: 1.25rem;
   padding: 2rem 0.7rem;
+  color: black;
 }
 
 button[class^="removeowncard"] {
