@@ -74,17 +74,28 @@ const btns = document.querySelector('#card_container');
 btns.addEventListener('click', e => {
 
   let i = 0;
+  let objIndex = 0;
+
+  function findBookIndex(i) {
+    objIndex = myLibrary.findIndex((obj => obj.id == i));
+    console.log("function findBookIndex worked");
+    return objIndex;
+  } 
+
   function flipReadStatus(i) {
-    if (myLibrary[i].readstatus == 'Read') {
-      myLibrary[i].readstatus = 'Not Read Yet';
-    } else if (myLibrary[i].readstatus == 'Not Read Yet') {
-      myLibrary[i].readstatus = 'Read';
-    }    
+    if (myLibrary[objIndex].readstatus == 'Read') {
+      myLibrary[objIndex].readstatus = 'Not Read Yet';
+    } else if (myLibrary[objIndex].readstatus == 'Not Read Yet') {
+      myLibrary[objIndex].readstatus = 'Read';
+    }
   }
+  
   if (e.target.className.slice(0,10) === 'readstatus') {
     console.log("selected read status");
+    // get "id" class of button clicked (and hence, of same card)
     readStatusChangeNumber = Number(e.target.className.substr(11)); 
-    i = readStatusChangeNumber;
+    i = readStatusChangeNumber; // i is for the "id" class
+    objIndex = findBookIndex(i); // finds respective index in myLibrary
     flipReadStatus(i);
     loopArrayForCards();
   } else if (e.target.className.slice(0,13) === 'removeowncard') {

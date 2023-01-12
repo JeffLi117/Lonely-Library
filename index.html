@@ -17,7 +17,7 @@
 
     <div class="form-box">
         <form action="#" method="get" id="test">
-            <div>
+            <div id="first_form_label">
                 <label for="title">Book Title</label><br>
                 <input type="text" id="title" name="book_title" placeholder="Harry Potter" required >
             </div>
@@ -26,10 +26,10 @@
                 <input type="text" id="author" name="book_author" placeholder="J.K. Rowling" required >
             </div>
             <div>
-                <label for="pages">Number of Pages</label>
-                <input type="text" id="pages" name="number_pages" placeholder="499" required >
+                <label for="pages">Number of Pages</label><br>
+                <input type="text" id="pages" name="number_pages" placeholder="499" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" required >
             </div>
-            <div>
+            <div id="last_form_label">
                 <label for="readstatus">Completed?</label>
                 <select id="readstatus" name="read_status" required>
                     <option value="Read">Read</option>
