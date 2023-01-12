@@ -89,7 +89,7 @@ btns.addEventListener('click', e => {
       myLibrary[objIndex].readstatus = 'Read';
     }
   }
-  
+
   if (e.target.className.slice(0,10) === 'readstatus') {
     console.log("selected read status");
     // get "id" class of button clicked (and hence, of same card)
@@ -107,32 +107,30 @@ btns.addEventListener('click', e => {
     checkBooksPresent();
     console.table(myLibrary);
   }
-
-  /* if (/\bremoveowncard\b/.test(e.target.className)) {
-    alert(e.target.className);
-  } */
-  // const removeBtn = document.querySelector('[class^="removeowncard"]');
-  // target Book with same unique class #
-  // toBeRemovedNumber = Number(e.target.className.substr(14));
-  // remove said Book
-
-  // removeFromLib();
-  // loopArrayForCards();
-  // checkBooksPresent();
-  // console.table(myLibrary);
 });
 
 // changes text based on if there are or aren't books in myLibrary
 function checkBooksPresent() {
   const booksHere = document.getElementById("books_present")
   const booksGone = document.getElementById("books_absent")
+  const clearAllBtn = document.getElementById("clear_all_button")
 
   if (myLibrary.length > 0) {
     booksHere.style.display = 'block';
     booksGone.style.display = 'none';
+    clearAllBtn.style.display = 'inline';
   } else if (myLibrary.length == 0) {
     booksHere.style.display = 'none';
     booksGone.style.display = 'block';
+    clearAllBtn.style.display = 'none';
+  }
+}
+
+function checkFields() {
+  const formCheck = document.getElementById("test")
+
+  if (!formCheck.checkValidity()) {
+    console.log("the form is invalid!")
   }
 }
 
@@ -144,7 +142,7 @@ submitFormBtn.addEventListener('click', (e) => {
   loopArrayForCards();
   checkBooksPresent();
   console.table(myLibrary);
-  /* document.getElementById("test").reset(); */
+  document.getElementById("test").reset();
   e.preventDefault();
 })
 

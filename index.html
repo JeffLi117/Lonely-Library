@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lonely Library</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Noto+Sans+Tangsa&display=swap" rel="stylesheet"> </style>
 </head>
 <body>
-    <h1>Welcome to the Lonely Library</h1>
+    <h1 class="library_font">Lonely Library</h1>
     <h2 id="books_present">Check out all your awesome books!</h2>
     <h2 id="books_absent">Looks like your library is empty!<br>Use the button below?</h2>
-    <div id="card_container"></div>
 
     <button id="new_form_button">New Book</button>
+    <button type="button" id="clear_all_button">Clear Library</button>
 
     <div class="form-box">
         <form action="#" method="get" id="test">
@@ -31,21 +32,16 @@
             </div>
             <div id="last_form_label">
                 <label for="readstatus">Completed?</label>
-                <select id="readstatus" name="read_status" required>
+                <select id="readstatus" name="read_status" required >
                     <option value="Read">Read</option>
                     <option value="Not Read Yet">Not Read Yet</option>
                 </select>
             </div>
             <button type="submit" id="submit_button">Add New Book</button>
             <button type="button" id="cancel_button">Cancel</button>
-            <button type="button" id="clear_all_button">Clear Library</button>
         </form>
     </div>
-   
-    
-
-
-
+    <div id="card_container"></div>
 
     <script src="myscripts.js"></script>
 </body>

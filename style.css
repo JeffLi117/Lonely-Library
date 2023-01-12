@@ -1,8 +1,21 @@
+:root {
+  font-family: 'Noto Sans Thai', sans-serif;
+}
+
 html,
 body {
   text-align: center;
   margin: 0;
   padding: 0;
+}
+
+.library_font {
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 3.2rem;
+}
+
+h2 {
+  font-size: 1.2rem;
 }
 
 body {
@@ -72,6 +85,10 @@ button[class^="removeowncard"] {
   border-radius: 12px;
   padding: 1rem;
   margin: 0.5rem;
+}
+
+#clear_all_button {
+  display: none;
 }
 
 button[class^="readstatus"] {
